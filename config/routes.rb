@@ -1,4 +1,6 @@
 GameMetricsMongo::Application.routes.draw do
+  resources :games
+
   resources :play_sessions
 
   # The priority is based upon order of creation: first created -> highest priority.
