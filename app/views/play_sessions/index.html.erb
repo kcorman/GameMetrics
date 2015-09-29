@@ -1,0 +1,31 @@
+<h1>Listing play_sessions</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Game name</th>
+      <th>Game</th>
+      <th>Version</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @play_sessions.each do |play_session| %>
+      <tr>
+        <td><%= play_session.game_name %></td>
+        <td><%= play_session.game_id %></td>
+        <td><%= play_session.version_id %></td>
+        <td><%= link_to 'Show', play_session %></td>
+        <td><%= link_to 'Edit', edit_play_session_path(play_session) %></td>
+        <td><%= link_to 'Destroy', play_session, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Play session', new_play_session_path %>
