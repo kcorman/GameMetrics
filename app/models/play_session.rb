@@ -1,8 +1,12 @@
 class PlaySession
   include Mongoid::Document
   include Mongoid::Timestamps
-  field :game_name, type: String
-  field :game_id, type: String
+  field :app_id, type: BSON::ObjectId
+
   field :version_id, type: Integer
   field :closed_on, type:Time
+  field :data, type: Hash
+  field :env, type: String
+
+  validates_presence_of :app_id, :version_id
 end

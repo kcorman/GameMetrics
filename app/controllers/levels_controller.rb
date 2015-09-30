@@ -25,7 +25,10 @@ class LevelsController < ApplicationController
   # POST /levels.json
   def create
     @level = Level.new(level_params)
-
+    sess = PlaySession.where(id:@level.session_id).first
+    if(!sess)
+        render :status => :bad_request, :text => "Unknown session" and return
+    end
     respond_to do |format|
       if @level.save
         format.html { redirect_to @level, notice: 'Level was successfully created.' }
@@ -69,6 +72,8 @@ class LevelsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def level_params
-      params.require(:level).permit(:session_id, :data, :actions, :version)
+      #params.require(:level).permit(:session_id, :data, :actions, :version)
+      #I'm going to hell for this
+      params.require(:level).permit!
     end
 end
