@@ -1,5 +1,5 @@
 GameMetricsMongo::Application.routes.draw do
-  resources :games
+  resources :levels
 
   resources :play_sessions
 

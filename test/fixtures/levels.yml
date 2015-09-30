@@ -3,7 +3,11 @@
 one:
   session_id: MyString
   data: 
+  actions: 
+  version: 
 
 two:
   session_id: MyString
   data: 
+  actions: 
+  version: 

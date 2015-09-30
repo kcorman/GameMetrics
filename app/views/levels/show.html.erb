@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Session:</strong>
+  <%= @level.session_id %>
+</p>
+
+<p>
+  <strong>Data:</strong>
+  <%= @level.data %>
+</p>
+
+<p>
+  <strong>Actions:</strong>
+  <%= @level.actions %>
+</p>
+
+<p>
+  <strong>Version:</strong>
+  <%= @level.version %>
+</p>
+
+<%= link_to 'Edit', edit_level_path(@level) %> |
+<%= link_to 'Back', levels_path %>
