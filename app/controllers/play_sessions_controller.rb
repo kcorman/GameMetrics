@@ -41,6 +41,15 @@ class PlaySessionsController < ApplicationController
   # PATCH/PUT /play_sessions/1.json
   def update
     respond_to do |format|
+      @play_session = PlaySession.where(:id => params[:id]).first
+      if(@play_session.nil?)
+        render :status => :not_found, :text => "Unknown session" and return
+      end
+      closing = play_session_params[:closed_on]
+      if(closing)
+          play_session_params[:length] = DateTime.parse(closing).to_i - @play_session.created_at.to_i
+      end
+      # Check if they're closing. If so replace close with closed_on and the current time 
       if @play_session.update(play_session_params)
         format.html { redirect_to @play_session, notice: 'Play session was successfully updated.' }
         format.json { head :no_content }

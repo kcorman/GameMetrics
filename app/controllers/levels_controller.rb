@@ -44,6 +44,10 @@ class LevelsController < ApplicationController
   # PATCH/PUT /levels/1.json
   def update
     respond_to do |format|
+      @level = Level.where(:id => params[:id])
+      if(@level.nil?)
+        render :status => :not_found, :text => "Unknown level" and return
+      end
       if @level.update(level_params)
         format.html { redirect_to @level, notice: 'Level was successfully updated.' }
         format.json { head :no_content }
