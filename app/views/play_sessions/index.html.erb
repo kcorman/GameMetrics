@@ -1,11 +1,16 @@
 <h1>Listing play_sessions</h1>
 
 <table>
-  <thead>
+    <thead>
+        <tr>
+            Total to date: <%= @play_sessions.length %>
+        </tr>
     <tr>
-      <th>Game name</th>
-      <th>Game</th>
+      <th>App ID</th>
+      <th>User ID</th>
       <th>Version</th>
+      <th>Closed On</th>
+      <th>Length</th>
       <th></th>
       <th></th>
       <th></th>
@@ -15,12 +20,12 @@
   <tbody>
     <% @play_sessions.each do |play_session| %>
       <tr>
-        <td><%= play_session.game_name %></td>
-        <td><%= play_session.game_id %></td>
+        <td><%= play_session.app_id %></td>
+        <td><%= play_session.user_id %></td>
         <td><%= play_session.version_id %></td>
+        <td><%= play_session.closed_on %></td>
+        <td><%= play_session.length %> sec</td>
         <td><%= link_to 'Show', play_session %></td>
-        <td><%= link_to 'Edit', edit_play_session_path(play_session) %></td>
-        <td><%= link_to 'Destroy', play_session, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

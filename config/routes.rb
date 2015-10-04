@@ -5,6 +5,14 @@ GameMetricsMongo::Application.routes.draw do
 
   resources :play_sessions
 
+  resources :analytics do
+      collection do
+          get 'sessions'
+      end
+  end
+
+  get '/server_info/leader', to: 'server_info#leader'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
