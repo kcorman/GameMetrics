@@ -8,6 +8,7 @@ GameMetricsMongo::Application.routes.draw do
   resources :analytics do
       collection do
           get 'sessions'
+          get 'charts'
       end
   end
 
